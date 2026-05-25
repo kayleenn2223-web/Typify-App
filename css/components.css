@@ -837,6 +837,7 @@
 .btn-soft-gray {
     background: rgba(36, 59, 107, 0.08);
     border: none;
+    outline: none;
     color: #243b6b;
     padding: 10px 24px;
     border-radius: 50px;
