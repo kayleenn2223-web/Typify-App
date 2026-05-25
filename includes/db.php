@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 require_once 'config.php';
 
 try {
@@ -16,5 +17,15 @@ try {
     header('Content-Type: application/json', true, 500);
     echo json_encode(["error" => "Koneksi database gagal."]);
     exit;
+=======
+$host = '127.0.0.1';
+$user = 'root';
+$password = '';
+$database = 'typify';
+
+$conn = mysqli_connect($host, $user, $password, $database);
+if (!$conn) {
+    die(json_encode(['status' => 'error', 'message' => 'Koneksi gagal: ' . mysqli_connect_error()]));
+>>>>>>> 227492b400b34885969d477f5bfe1f7ecf683f10
 }
 ?>

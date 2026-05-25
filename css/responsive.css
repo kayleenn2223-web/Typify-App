@@ -1,11 +1,124 @@
+/* 
+    css/responsive.css - Adaptasi Layar Mobile 
+    Fokus: One-column grid & Auto-adjusting widgets
+*/
+
+@media (max-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr; /* Stack side stats below main content */
+    }
+}
+
 @media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+
     .navbar {
         flex-direction: column;
         gap: 20px;
+        text-align: center;
     }
 
-    .nav-links {
-        flex-direction: column;
-        align-items: center;
+    .nav-right-widget {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Widget Profile Auto-Adjust */
+    .profile-widget {
+        max-width: 100%;
+        width: auto;
+        overflow: hidden;
+    }
+
+    .user-name-text {
+        display: none; /* Sembunyikan nama di layar sangat kecil agar tidak berantakan */
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr; /* Satu kolom rapi ke bawah */
+    }
+
+    .logo-text {
+        font-size: 20px;
     }
 }
+
+@media (max-width: 480px) {
+    .nav-icons-mini {
+        display: none; /* Sembunyikan ikon nav tambahan di HP kecil */
+    }
+}
+
+/* --- Rewards & Overlays Responsive Rules --- */
+@media (max-width: 1024px) {
+    .rewards-grid {
+        grid-template-columns: 1fr; /* Stack point balance and history vertically */
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .streak-tracker {
+        padding: 20px;
+    }
+
+    .card-header-rewards {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .streak-badge {
+        align-self: flex-start;
+    }
+
+    .streak-action-panel {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+        text-align: center;
+        padding: 15px 20px;
+        margin: 20px -20px -20px;
+    }
+
+    .trigger-buttons-grid {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 12px;
+    }
+    
+    .trigger-buttons-grid button {
+        width: 100%;
+    }
+
+    .modal-card {
+        padding: 25px;
+        border-radius: 20px;
+        margin: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .points-value {
+        font-size: 36px;
+    }
+
+    .points-actions {
+        flex-direction: column;
+    }
+
+    .toast-container.top-right {
+        top: 20px;
+        right: 20px;
+        left: 20px; /* Stretch across the screen on very small displays */
+    }
+
+    .toast {
+        max-width: 100%;
+    }
+}
+

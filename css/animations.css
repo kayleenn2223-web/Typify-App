@@ -1,15 +1,199 @@
-.fade-in {
-    animation: fadeIn 0.5s ease;
+/* 
+    css/animations.css - Animasi & Efek Halus 
+    Fokus: Transitions, Fade-in, & Hover Effects
+*/
+
+/* --- Smooth Transitions --- */
+.btn-go-pro, 
+.mini-icon, 
+.card-item, 
+.modal-content {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* --- Hover Effects --- */
+.btn-go-pro:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(253, 121, 168, 0.4);
+    filter: brightness(1.1);
+}
+
+.mini-icon:hover {
+    color: #fd79a8;
+    transform: scale(1.2);
+}
+
+.card-item:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(253, 121, 168, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Fade In Animations --- */
 @keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(10px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* --- Modal Slide Animation --- */
+@keyframes modalSlide {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-content {
+    animation: modalSlide 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* --- Gamified & Modal Micro-Animations --- */
+
+/* Fire pulsing icon */
+@keyframes firePulse {
+    0% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(255, 118, 117, 0.4)); }
+    50% { transform: scale(1.1) translateY(-2px); filter: drop-shadow(0 0 8px rgba(255, 118, 117, 0.8)); }
+    100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(255, 118, 117, 0.4)); }
+}
+
+.animate-fire {
+    animation: firePulse 2s infinite ease-in-out;
+}
+
+/* Glowing stars floating effect */
+.star-decor {
+    position: absolute;
+    color: rgba(255, 226, 89, 0.35);
+    font-size: 14px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes floatStar1 {
+    0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.3; }
+    50% { transform: translateY(-15px) rotate(180deg) scale(1.2); opacity: 0.8; text-shadow: 0 0 10px rgba(255, 226, 89, 0.8); }
+    100% { transform: translateY(0) rotate(360deg) scale(1); opacity: 0.3; }
+}
+
+@keyframes floatStar2 {
+    0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.4; }
+    50% { transform: translateY(-25px) rotate(-120deg) scale(0.9); opacity: 0.7; text-shadow: 0 0 10px rgba(255, 226, 89, 0.6); }
+    100% { transform: translateY(0) rotate(-360deg) scale(1); opacity: 0.4; }
+}
+
+.star-1 {
+    top: 15%;
+    left: 8%;
+    animation: floatStar1 4s infinite ease-in-out;
+}
+
+.star-2 {
+    top: 75%;
+    left: 85%;
+    animation: floatStar2 5s infinite ease-in-out;
+    font-size: 18px;
+}
+
+.star-3 {
+    top: 25%;
+    left: 70%;
+    animation: floatStar1 6s infinite ease-in-out;
+    font-size: 11px;
+}
+
+/* Checkmark pulse effect for success toast */
+@keyframes checkmarkPulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.4); }
+    70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(46, 204, 113, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+}
+
+.checkmark-pulse {
+    animation: checkmarkPulse 2s infinite ease-in-out;
+}
+
+/* Hover pulse button gradient glow */
+.btn-peach-glow {
+    background: linear-gradient(135deg, #fd79a8, #fab1a0);
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(253, 121, 168, 0.35);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-peach-glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(253, 121, 168, 0.6), 
+                0 0 0 4px rgba(253, 121, 168, 0.15);
+}
+
+.btn-peach-glow:active {
+    transform: translateY(0);
+}
+
+/* Warning pulse animation */
+@keyframes warningPulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 118, 117, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 118, 117, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 118, 117, 0); }
+}
+
+.pulse-warning {
+    animation: warningPulse 2s infinite ease-in-out;
+}
+
+/* Shake hover effect for danger action */
+@keyframes shakeEffect {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-4px); }
+    40%, 80% { transform: translateX(4px); }
+}
+
+.hover-shake:hover {
+    animation: shakeEffect 0.4s ease-in-out;
+}
+
+/* Background Glowing Orbs for layout depth */
+.points-glow, .hero-glow {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(253, 121, 168, 0.25) 0%, rgba(255, 255, 255, 0) 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.points-glow {
+    top: -50px;
+    right: -50px;
+}
+
+.hero-glow {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(183, 201, 255, 0.3) 0%, rgba(255, 255, 255, 0) 75%);
+}
+
